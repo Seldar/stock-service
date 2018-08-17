@@ -1,22 +1,17 @@
 node {
     stage 'build'
-    withEnv(['DOCKER_REGISTRY=192.168.218.61:5001']) {
-
-          sh 'docker-compose -f docker-compose-ci.yml build'
-
-    }
+        sh 'docker-compose -f docker-compose.yml build
     stage 'test'
-    withEnv(['DOCKER_REGISTRY=192.168.218.61:5001']) {
         sh 'echo "Starting containers..."'
-        sh 'docker-compose -f docker-compose-ci.yml up -d --remove-orphans'
+        sh 'docker-compose -f docker-compose.yml up -d --remove-orphans'
         sh 'echo "Starting tests"'
         sh 'sleep 400 # Wait for containers to be ready'
         sh 'tools/ci/tests.bash'
         sh 'echo "Stopping containers..."'
-        sh 'docker-compose -f docker-compose-ci.yml stop'
+        sh 'docker-compose -f docker-compose.yml stop'
         sh 'echo "Removing containers..."'
-        sh 'docker-compose -f docker-compose-ci.yml rm -f'
-    }
-
+        sh 'docker-compose -f docker-compose.yml rm -f'
     stage 'deploy'
+        sh 'echo "Starting containers..."'
+        sh 'docker-compose -f docker-compose-deploy.yml up -d --force-recreate'
 }
