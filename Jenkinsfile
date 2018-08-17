@@ -1,6 +1,6 @@
 node {
     stage 'build'
-        sh 'docker-compose -f docker-compose.yml build
+        sh 'docker-compose -f docker-compose.yml build'
     stage 'test'
         sh 'echo "Starting containers..."'
         sh 'docker-compose -f docker-compose.yml up -d --remove-orphans'
