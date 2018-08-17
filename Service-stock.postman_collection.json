@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "7bc309ec-1ff2-eae4-2960-c90d2a6b24bc",
+		"name": "Service-stock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
+					"host": [
+						"localhost"
+					],
+					"port": "10001",
+					"path": [
+						"api",
+						"fdb0cf18-c728-4451-a232-8f5c0e4d1303"
+					]
+				},
+				"description": "Retrieves the stock information"
+			},
+			"response": []
+		},
+		{
+			"name": "Save Stock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"quantity\":10\n  }\n]"
+				},
+				"url": {
+					"raw": "0.0.0.0:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10001",
+					"path": [
+						"api",
+						"fdb0cf18-c728-4451-a232-8f5c0e4d1303"
+					]
+				},
+				"description": "Create or update stock information"
+			},
+			"response": []
+		}
+	]
+}
