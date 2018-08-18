@@ -1,9 +1,9 @@
 node {
     stage 'build'
-    sh 'sudo docker-compose -f "../Stock Service Pipeline@script/docker-compose.yml" build'
+    sh 'docker-compose -f "../Stock Service Pipeline@script/docker-compose.yml" build'
     stage 'test'
     sh 'echo "Starting containers..."'
-    sh 'sudo docker-compose -f "../Stock Service Pipeline@script/docker-compose.yml" up -d --remove-orphans'
+    sh 'docker-compose -f "../Stock Service Pipeline@script/docker-compose.yml" up -d --remove-orphans'
     sh 'docker run --rm --interactive --tty -v "/var/lib/jenkins/workspace/Stock Service Pipeline@script":/app composer install'
     sh 'echo "Starting tests"'
     sh 'sleep 400 # Wait for containers to be ready'
