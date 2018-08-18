@@ -1,6 +1,6 @@
 node {
     stage ('build') {
-        cd  "../Stock Service Pipeline@script"
+        sh 'cd  "../Stock Service Pipeline@script"'
         sh 'sudo docker-compose -f ./docker-compose.yml build'
     }
     stage ('test') {
