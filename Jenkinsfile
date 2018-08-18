@@ -8,11 +8,11 @@ node {
         sh 'sudo docker-compose -f docker-compose.yml build'
     }
     stage ('test') {
+        sh 'sudo docker run --rm -v "/var/lib/jenkins/workspace/Stock Service Pipeline":/app composer install'
         sh 'echo "Starting containers..."'
         sh 'sudo docker-compose -f docker-compose.yml up -d --remove-orphans'
-        sh 'sudo docker run --rm -v "/var/lib/jenkins/workspace/Stock Service Pipeline@script":/app composer install'
         sh 'echo "Starting tests"'
-        sh './vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
+        sh 'sudo docker exec -it stockservicepipeline_app_1 "./vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit"'
         sh 'echo "Stopping containers..."'
         sh 'sudo docker-compose -f docker-compose.yml stop'
         sh 'echo "Removing containers..."'
