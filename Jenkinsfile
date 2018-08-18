@@ -1,6 +1,10 @@
 node {
     stage ('build') {
-        sh 'cd  "../Stock Service Pipeline@script"'
+        checkout([$class: 'GitSCM',
+                branches: [[name: '*/master']],
+                doGenerateSubmoduleConfigurations: false,
+                submoduleCfg: [],
+                userRemoteConfigs: [[url: 'https://github.com/Seldar/stock-service.git']]])
         sh 'sudo docker-compose -f docker-compose.yml build'
     }
     stage ('test') {
