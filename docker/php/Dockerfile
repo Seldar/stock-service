@@ -8,8 +8,4 @@ RUN apt-get update
 
 RUN apt-get --assume-yes install nginx
 
-RUN service nginx start
-
 RUN apt-get --assume-yes install mysql-server
-
-RUN service mysql start

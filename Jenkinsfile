@@ -21,6 +21,8 @@ node {
     stage ('deploy') {
         sh 'echo "Starting containers..."'
         sh 'sudo docker-compose -f docker-compose-deploy.yml up -d --force-recreate'
+        sh 'sudo docker exec -i stockservicepipeline_php_1 service nginx start'
+        sh 'sudo docker exec -i stockservicepipeline_php_1 service mysql start'
         sh 'sudo docker exec -i stockservicepipeline_php_1 mysql < database.sql'
     }
 }
