@@ -13,5 +13,5 @@ node {
     sh 'sudo docker-compose -f "../Stock Service Pipeline@script/docker-compose.yml" rm -f'
     stage 'deploy'
     sh 'echo "Starting containers..."'
-    sh 'sudo docker-compose -f docker-compose-deploy.yml up -d --force-recreate'
+    sh 'sudo docker-compose -f "../Stock Service Pipeline@script/docker-compose-deploy.yml" up -d --force-recreate'
 }
