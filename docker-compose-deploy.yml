@@ -5,7 +5,7 @@ services:
     restart: always
     working_dir: /var/www
     ports:
-          - 8888:80
+          - 10001:80
     build:
       context: .
       dockerfile: docker/php/Dockerfile
