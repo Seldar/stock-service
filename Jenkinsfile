@@ -12,7 +12,7 @@ node {
         sh 'echo "Starting containers..."'
         sh 'sudo docker-compose -f docker-compose.yml up -d --remove-orphans'
         sh 'echo "Starting tests"'
-        sh 'sudo docker exec -i stockservicepipeline_app_1 /var/www/vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
+        sh 'sudo docker exec -i php /var/www/vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
         sh 'echo "Stopping containers..."'
         sh 'sudo docker-compose -f docker-compose.yml stop'
         sh 'echo "Removing containers..."'
