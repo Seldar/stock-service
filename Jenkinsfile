@@ -20,7 +20,7 @@ node {
     }
     stage ('deploy') {
         sh 'echo "Starting containers..."'
-        sh 'sudo docker-compose -f docker-compose-deploy.yml up -d --force-recreate'
+        sh 'sudo docker stack deploy -c docker-compose-deploy.yml stock-service'
         sh 'sleep 3'
         sh 'sudo docker exec -i service-stock-mysql mysql -uroot -proot < database.sql'
     }
