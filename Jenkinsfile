@@ -23,6 +23,6 @@ node {
         sh 'echo "Starting containers..."'
         sh 'sudo docker build -t "vulukut/stock-service-php" -f docker/php/Dockerfile .'
         sh 'sudo docker push "vulukut/stock-service-php"'
-        sh 'sudo docker stack deploy -c docker-compose-deploy.yml stock-service'
+        sh 'sudo docker stack deploy -c docker-compose-deploy.yml --with-registry-auth stock-service'
     }
 }
