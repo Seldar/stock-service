@@ -3,6 +3,8 @@ version: '3'
 services:
   web:
     image: nginx:alpine
+    deploy:
+      replicas: 3
     volumes:
         - .:/var/www
         - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
@@ -14,6 +16,8 @@ services:
   php:
     working_dir: /var/www
     image: vulukut/stock-service-php
+    deploy:
+      replicas: 3
     volumes:
       - .:/var/www
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
