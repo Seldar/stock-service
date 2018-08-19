@@ -28,4 +28,4 @@ services:
         - MYSQL_PASSWORD=root
     ports:
         - 3306:3306
-    command: mysql -uroot -proot < database.sql
+    command: bash -c "sleep 3 && mysql -uroot -proot < database.sql"
