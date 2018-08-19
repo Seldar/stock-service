@@ -20,7 +20,7 @@ return [
         'mysqlCredentials' => [
             'username' => 'root',
             'password' => 'root',
-            'dsn'      => 'mysql:dbname=stock;host=service-stock-mysql'
+            'dsn'      => 'mysql:dbname=stock;host=172.31.42.196'
         ]
     ],
 ];
