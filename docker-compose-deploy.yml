@@ -24,7 +24,7 @@ services:
   service-stock-mysql:
     image: mysql:5.7
     volumes:
-        - ./database.sql:/database.sql
+        - ./database.sql:/docker-entrypoint-initdb.d/database.sql
     environment:
         - MYSQL_DATABASE=stock
         - MYSQL_ROOT_PASSWORD=root
