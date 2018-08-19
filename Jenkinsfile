@@ -19,6 +19,7 @@ node {
         sh 'sudo docker-compose -f docker-compose.yml rm -f'
     }
     stage ('deploy') {
+        cat ~/wf3rg.txt | docker login --username vulukut --password-stdin
         sh 'echo "Starting containers..."'
         sh 'sudo docker build -t "vulukut/stock-service-php" -f docker/php/Dockerfile .'
         sh 'sudo docker push "vulukut/stock-service-php"'
