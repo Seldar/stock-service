@@ -12,7 +12,7 @@ node {
         sh 'echo "Starting containers..."'
         sh 'sudo docker-compose -f docker-compose.yml up -d --remove-orphans'
         sh 'echo "Starting tests"'
-        sh 'sudo docker exec -i stockservicepipeline_php_1 /var/www/vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
+        sh 'sudo docker exec -i service-stock-php /var/www/vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
         sh 'echo "Stopping containers..."'
         sh 'sudo docker-compose -f docker-compose.yml stop'
         sh 'echo "Removing containers..."'
@@ -21,6 +21,6 @@ node {
     stage ('deploy') {
         sh 'echo "Starting containers..."'
         sh 'sudo docker-compose -f docker-compose-deploy.yml up -d --force-recreate'
-        sh 'sudo docker exec -i stockservicepipeline_service-stock-mysql_1 mysql -uroot -proot < database.sql'
+        sh 'sudo docker exec -i service-stock-mysql mysql -uroot -proot < database.sql'
     }
 }
