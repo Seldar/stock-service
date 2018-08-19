@@ -28,5 +28,6 @@ node {
         sh 'sudo docker stack deploy -c docker-compose-deploy.yml --with-registry-auth stock-service'
         sh 'sudo docker service ls'
         sh 'sudo docker node ls'
+        sh 'sudo docker stack ps -f desired-state=running stock-service'
     }
 }
