@@ -13,7 +13,7 @@ services:
         - service-stock-mysql
   php:
     working_dir: /var/www
-    image: vulukut:stock-service-php
+    image: vulukut/stock-service-php
     volumes:
       - .:/var/www
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
