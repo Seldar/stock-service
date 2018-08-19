@@ -4,6 +4,7 @@ services:
   php:
     restart: always
     working_dir: /var/www
+    container_name: service-stock-php
     build:
       context: .
       dockerfile: docker/php/Dockerfile
