@@ -10,7 +10,7 @@ node {
     stage ('test') {
         sh 'sudo docker run --rm -v "/var/lib/jenkins/workspace/Stock Service Pipeline":/app composer install'
         sh 'echo "Starting containers..."'
-        sh 'sudo docker-compose -f docker-compose.yml up -d --remove-orphans'
+        sh 'sudo docker-compose -f docker-compose.yml up -d'
         sh 'echo "Starting tests"'
         sh 'sudo docker exec -i service-stock-php /var/www/vendor/bin/phpunit -c ./tests/unit/phpunit.xml tests/unit'
         sh 'echo "Stopping containers..."'
