@@ -26,5 +26,6 @@ node {
         sh 'sudo rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.42.196:"/var/lib/jenkins/workspace/Stock\\ Service\\ Pipeline"'
         sh 'sudo rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.39.151:"/var/lib/jenkins/workspace/Stock\\ Service\\ Pipeline"'
         sh 'sudo docker stack deploy -c docker-compose-deploy.yml --with-registry-auth stock-service'
+        sh 'sudo docker service ls'
     }
 }
