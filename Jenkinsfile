@@ -23,8 +23,8 @@ node {
         sh 'echo "Starting containers..."'
         sh 'sudo docker build -t "vulukut/stock-service-php" -f docker/php/Dockerfile .'
         sh 'sudo docker push "vulukut/stock-service-php"'
-        sh 'rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.42.196:"/var/lib/jenkins/workspace/Stock Service Pipeline"'
-        sh 'rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.39.151:"/var/lib/jenkins/workspace/Stock Service Pipeline"'
+        sh 'sudo rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.42.196:"/var/lib/jenkins/workspace/Stock Service Pipeline"'
+        sh 'sudo rsync -avrt --delete --rsh="ssh -p 22" ./ root@172.31.39.151:"/var/lib/jenkins/workspace/Stock Service Pipeline"'
         sh 'sudo docker stack deploy -c docker-compose-deploy.yml --with-registry-auth --resolve-image stock-service'
     }
 }
