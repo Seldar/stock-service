@@ -3,7 +3,6 @@ version: '3'
 services:
   web:
     image: nginx:alpine
-    container_name: service-stock-web
     volumes:
         - .:/var/www
         - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
@@ -14,17 +13,14 @@ services:
         - service-stock-mysql
   php:
     working_dir: /var/www
-    container_name: service-stock-php
     image: vulukut:stock-service-php
     volumes:
       - .:/var/www
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
   service-stock-mysql:
     image: mysql:5.7
-    container_name: service-stock-mysql
     volumes:
         - ./database.sql:/database.sql
-    restart: always
     environment:
         - MYSQL_DATABASE=stock
         - MYSQL_ROOT_PASSWORD=root
