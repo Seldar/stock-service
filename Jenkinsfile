@@ -20,6 +20,8 @@ node {
     }
     stage ('deploy') {
         sh 'echo "Starting containers..."'
+        sh 'sudo docker build -t "vulukut/stock-service-php" -f docker/php/Dockerfile .'
+        sh 'sudo docker push "vulukut/stock-service-php"'
         sh 'sudo docker stack deploy -c docker-compose-deploy.yml stock-service'
         sh 'sleep 3'
         sh 'sudo docker exec -i service-stock-mysql mysql -uroot -proot < database.sql'
