@@ -24,8 +24,6 @@ services:
     environment:
         - MYSQL_DATABASE=stock
         - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=root
     ports:
         - 3306:3306
     #command: bash -c "sleep 5 && mysql -uroot -proot < database.sql"
