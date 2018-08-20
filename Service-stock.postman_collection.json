@@ -12,9 +12,9 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
+					"raw": "stock-service-2139415234.eu-central-1.elb.amazonaws.com:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
 					"host": [
-						"localhost"
+						"stock-service-2139415234.eu-central-1.elb.amazonaws.com"
 					],
 					"port": "10001",
 					"path": [
@@ -41,12 +41,9 @@
 					"raw": "[\n  {\n    \"quantity\":10\n  }\n]"
 				},
 				"url": {
-					"raw": "0.0.0.0:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
+					"raw": "stock-service-2139415234.eu-central-1.elb.amazonaws.com:10001/api/fdb0cf18-c728-4451-a232-8f5c0e4d1303",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"stock-service-2139415234.eu-central-1.elb.amazonaws.com"
 					],
 					"port": "10001",
 					"path": [
