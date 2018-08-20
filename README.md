@@ -37,6 +37,6 @@ Because that is one of the ways a swarm stack makes sense. it enables high avail
 - Why is the mysql container deployed to a worker and not master node?
 
 Because t2.micro has limited memory and running jenkins and a mysql container ends up out of memory failures.
-- Why did you pushed the image to dockerhub and not used it locally?
+- Why did you push the image to dockerhub and not used it locally?
 
 Because workers would not have access to the local images built on master and dockerhub allows a single point of truth.
